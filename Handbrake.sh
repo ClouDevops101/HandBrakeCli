@@ -16,9 +16,15 @@ DEST=$1
 TMP=/Users/$USER/Desktop
 DEST_EXT=HB.m4v
 WAIT=$3
+DELET=$4
 HB=HandBrakeCLI
 DBUG=true
 XO="ref=4:mixed-refs=1:b-adapt=2:bframes=6:weightb=1:direct=auto:me=umh:subq=11:analyse=all:8x8dct=1:trellis=2:no-fast-pskip=1:psy-rd=1,0:merange=24:deblock=-3,-3:rc-lookahead=50:aq-strength=1.2:b-pyramid=2"
+
+
+
+
+
 
 #for FILE in `ls $SRC/*.mkv`
 # Big file first
@@ -42,19 +48,21 @@ for FILE in `du -h $SRC/*.$FORMAT_SRC  | sort -n -r  | awk '{print $2}'`
 		rm -f $TMP/$TMP_FILE
 		# comparaison de la compression avec HB
 
-		film_ori=`HandBrakeCLI --scan -i $FILE 2>&1  | grep Duration | awk '{print $2}' | tr ',' ' ' | cut -d'.' -f1`
+	 	film_ori=`HandBrakeCLI --scan -i $FILE 2>&1  | grep Duration | awk '{print $2}' | tr ',' ' ' | cut -d'.' -f1`
 		film_HB=`HandBrakeCLI --scan -i $TMP/$filename.$DEST_EXT  2>&1  | grep Duration | awk '{print $2}' | tr ',' ' ' | cut -d'.' -f1`
 
-		if [[ "$film_ori" == "$film_HB" ]]
+		if [ "$film_ori" == "$film_HB" ] && [ "$DELET" == "yes" ]
 		then
+		
 			rm -f $FILE
 			echo "Suppression du fichier $TMP/$TMP_FILE"
+
 		else
 			echo "Fichier non supprime merci de verifier les deux fichiers"
 		fi
 
                 mv $TMP/$filename.$DEST_EXT $DEST
-		osascript -e 'display notification "Sleeping ..."'
+				osascript -e 'display notification "Sleeping ..."'
         	sleep $WAIT
 	done
 
