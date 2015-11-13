@@ -4,7 +4,7 @@
 # The mp4 format is 480x270_
 # Update  : V0.1.1 25/10/2015 : Adding subtitile, audio Bite rate 128, 
 # Comment : V0.1.2 25/10/2015 : Adding debug 
-# Update
+# Update  : Adding features  : scan anc comapre the output video to the original and delete it if everything is OK 
 
 #SRC=/Volumes/Data
 #SRC=/Volumes/Movie
@@ -13,7 +13,7 @@ FORMAT_SRC=$2
 #DEST=/Volumes/Data
 #DEST=/Volumes/Movie
 DEST=$1
-TMP=/Users/heddar/Desktop
+TMP=/Users/$USER/Desktop
 DEST_EXT=HB.m4v
 WAIT=$3
 HB=HandBrakeCLI
