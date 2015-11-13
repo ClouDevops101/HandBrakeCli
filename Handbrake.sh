@@ -6,12 +6,10 @@
 # Comment : V0.1.2 25/10/2015 : Adding debug 
 
 #SRC=/Volumes/Data
-#SRC=/Volumes/Movie
-SRC=$1
+SRC=/Volumes/Movie
 #DEST=/Volumes/Data
-#DEST=/Volumes/Movie
-DEST=$1
-TMP=/$USER/heddar/Desktop
+DEST=/Volumes/Movie
+TMP=/Users/heddar/Desktop
 DEST_EXT=HB.m4v
 WAIT=3717
 HB=HandBrakeCLI
@@ -27,19 +25,15 @@ for FILE in `du -h $SRC/*.mkv  | sort -n -r  | awk '{print $2}'`
         	extension=${filename##*.}
         	filename=${filename%.*}
 		# Copy to desktop
-		osascript -e "display notification \"$FILE\""
 		cp  -v $FILE $TMP
                 sleep 7
 		#echo "-i $FILE -o $DEST/$filename.$DEST_EXT"
-		osascript -e 'display notification "Start compressing"'
 		$HB -i $TMP/$TMP_FILE -o $TMP/$filename.$DEST_EXT  -f av_mp4 -m -a 1,2  -E copy:aac  --audio-fallback aac -B 128 -e x264 -q 20 -s 1,2 -N fre,eng -x $XO
-		osascript -e 'display notification "End compressing"'
         	Size_SRC=`du -h $FILE`
 		Size_HB=`du -h $TMP/$filename.$DEST_EXT`
 		echo -e "Original size : $Size_SRC \nAfter compres : $Size_HB "
                 mv $TMP/$filename.$DEST_EXT $DEST
 		rm -f $TMP/$TMP_FILE
-		osascript -e 'display notification "Sleeping ..."'
         	sleep $WAIT
 	done
 
