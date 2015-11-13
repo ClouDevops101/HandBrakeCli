@@ -18,6 +18,7 @@ Handbrake.sh /Volume/video mkv 3600
 - the folder to feetch video files
 - the video file format_
 - the sleep time (in seconds) between two compression
+- wether or not deleting original file 
 
 When folder is processed the script sort the video file from bigger file to smaller, than compression begin with the same order
 
@@ -71,8 +72,8 @@ Usage
 -----
 
 ```bash
-    $ Handbrake.sh /Volume/Video_Folder mkv 3600
-    usage: Handbrake.sh [arg1] [arg2] [arg3]
+    $      Handbrake.sh /Volume/Video_Folder mkv   3600   yes
+    usage: Handbrake.sh     [arg1]          [arg2] [arg3] [arg4]
 
     Command line interface for compressing mkv and mp4 video file to m4v/aac Appletv ios video format
     --------------------------------------------------------------------------
