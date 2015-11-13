@@ -45,7 +45,6 @@ The script use the HandBrakeCLI 64 bite
 
 ~~~~~~~~~~~~~~~~~~~
 
-
 Installation
 ------------
 
