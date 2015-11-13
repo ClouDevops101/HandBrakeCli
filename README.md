@@ -39,14 +39,15 @@ Requirement
 ------------
 
 The script use the HandBrakeCLI 64 bite
-
+You can download it in official Hanbrake web site
 [HandBrakeCLI] (https://handbrake.fr/downloads2.php)
 
 
-~~~~~~~~~~~~~~~~~~~
-
 Installation
 ------------
+
+
+~~~~~~~~~~~~~~~~~~~
 
 ::
 
