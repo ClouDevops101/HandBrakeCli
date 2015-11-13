@@ -11,7 +11,7 @@ for more information about Handbrake please visite the official web page :
 [ Handbrake website ](https://trac.handbrake.fr/wiki/CLIGuide)
 
 This script take 3 argument as input :
-ex :__
+ex :
 
 Handbrake.sh /Volume/video mkv 3600
 
@@ -47,34 +47,30 @@ Installation
 ------------
 
 
-~~~~~~~~~~~~~~~~~~~
 
-::
 
+
+```bash
     cp Handbrake.sh /usr/local/bin/ && chmod +x /usr/local/bin/Handbrake.sh
-
+```
 
 
 Just download (Like the way it used to be)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-::
-
+```bash
     wget -O Handbrake.sh https://raw.githubusercontent.com/LinuxArchitects/HandBrakeCli/master/Handbrake.sh
     chmod +x Handbrake.sh
-
+```
 or
 
-::
-
+```bash
     curl -Lo Handbrake.sh https://raw.githubusercontent.com/LinuxArchitects/HandBrakeCli/master/Handbrake.sh
     chmod +x Handbrake.sh
-
+```
 Usage
 -----
 
-::
-
+```bash
     $ Handbrake.sh /Volume/Video_Folder mkv 3600
     usage: Handbrake.sh [arg1] [arg2] [arg3]
 
@@ -84,24 +80,4 @@ Usage
 
     optional arguments:
        not for yet
-
-Inconsistency
--------------
-
-It is not a goal of this application to be a reliable latency reporting tool.
-
-Latency reported by this tool should not be relied on as a value indicative of ICMP
-style latency. It is a relative value used for determining the lowest latency server
-for performing the actual speed test against.
-
-There is the potential for this tool to report results inconsistent with Speedtest.net.
-There are several concepts to be aware of that factor into the potential inconsistency:
-
-1. Speedtest.net has migrated to using pure socket tests instead of HTTP based tests
-2. This application is written in Python
-3. Different versions of Python will execute certain parts of the code faster than others
-4. CPU and Memory capacity and speed will play a large part in inconsistency between
-   Speedtest.net and even other machines on the same network
-
-Issues relating to inconsistencies will be closed as wontfix and without
-additional reason or context.
+```
