@@ -1,21 +1,29 @@
-# HandBrakeCli
+Handbrake.sh
+=============
+
+Handbrank.sh Command line interface for compressing mkv and mp4 video file to m4v/aac Appletv ios video format
+
+
+.. image:: https://handbrake.fr/img/logo.png
+        :target: https://github.com/LinuxArchitects/HandBrakeCli/blob/master/Handbrake.sh
+        :alt: Latest Version
+
 Handbrake.sh convert mkv to m4v AppleTv format using HandBrakeCli the most powerfull tools to compresse multiple video format.
 for more information about Handbrake please visite the official web page :
 [ Handbrake website ](https://trac.handbrake.fr/wiki/CLIGuide)
 
-## Input argument
 This script take 3 argument as input :
-ex :  
+ex :__
 
 Handbrake.sh /Volume/video mkv 3600
 
 - the folder to feetch video files
-- the video file format 
+- the video file format_
 - the sleep time (in seconds) between two compression
 
 When folder is processed the script sort the video file from bigger file to smaller, than compression begin with the same order
 
-Quality specification : 
+Quality specification :_
 
 - Compression using -e x264
 - audio select track -a 1,2
@@ -24,4 +32,78 @@ Quality specification :
 - Audio format aac -E copy:aac
 - Subtitiles -s 1,2
 
+Versions
+--------
+Handbrake.sh 1.0.1
 
+
+Requirement
+------------
+
+The script use the HandBrakeCLI 64 bite
+
+[HandBrakeCLI] (https://handbrake.fr/downloads2.php)
+
+
+~~~~~~~~~~~~~~~~~~~
+
+
+Installation
+------------
+
+::
+
+    cp Handbrake.sh /usr/local/bin/ && chmod +x /usr/local/bin/Handbrake.sh
+
+
+
+Just download (Like the way it used to be)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+::
+
+    wget -O Handbrake.sh https://raw.githubusercontent.com/LinuxArchitects/HandBrakeCli/master/Handbrake.sh
+    chmod +x Handbrake.sh
+
+or
+
+::
+
+    curl -Lo Handbrake.sh https://raw.githubusercontent.com/LinuxArchitects/HandBrakeCli/master/Handbrake.sh
+    chmod +x Handbrake.sh
+
+Usage
+-----
+
+::
+
+    $ Handbrake.sh /Volume/Video_Folder mkv 3600
+    usage: Handbrake.sh [arg1] [arg2] [arg3]
+
+    Command line interface for compressing mkv and mp4 video file to m4v/aac Appletv ios video format
+    --------------------------------------------------------------------------
+    https://github.com/LinuxArchitects/HandBrakeCli
+
+    optional arguments:
+       not for yet
+
+Inconsistency
+-------------
+
+It is not a goal of this application to be a reliable latency reporting tool.
+
+Latency reported by this tool should not be relied on as a value indicative of ICMP
+style latency. It is a relative value used for determining the lowest latency server
+for performing the actual speed test against.
+
+There is the potential for this tool to report results inconsistent with Speedtest.net.
+There are several concepts to be aware of that factor into the potential inconsistency:
+
+1. Speedtest.net has migrated to using pure socket tests instead of HTTP based tests
+2. This application is written in Python
+3. Different versions of Python will execute certain parts of the code faster than others
+4. CPU and Memory capacity and speed will play a large part in inconsistency between
+   Speedtest.net and even other machines on the same network
+
+Issues relating to inconsistencies will be closed as wontfix and without
+additional reason or context.
