@@ -12,6 +12,9 @@ Handbrake.sh /Volume/video mkv 3600
 - the video file format 
 - the sleep time (in seconds) between two compression
 
+When folder is processed the script sort the video file from bigger file to smaller, than compression begin with the same order
+
+Quality specification : 
 
 - Compression using -e x264
 - audio select track -a 1,2
