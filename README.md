@@ -1,7 +1,7 @@
 # HandBrakeCli
 Handbrake.sh convert mkv to m4v AppleTv format using HandBrakeCli the most powerfull tools to compresse multiple video format.
 for more information about Handbrake please visite the official web page :
-https://trac.handbrake.fr/wiki/CLIGuide
+[ Handbrake website ](https://trac.handbrake.fr/wiki/CLIGuide)
 
 ## Input argument
 This script take 3 argument as input :
