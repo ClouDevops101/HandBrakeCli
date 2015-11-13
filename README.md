@@ -12,11 +12,12 @@ Handbrake.sh /Volume/video mkv 3600
 - the video file format 
 - the sleep time (in seconds) between two compression
 
-Compression using -e x264
-audio select track -a 1,2
-Biterate -B 128
-Quality -q 20
-Audio format aac -E copy:aac
-Subtitiles -s 1,2
+
+- Compression using -e x264
+- audio select track -a 1,2
+- Biterate -B 128
+- Quality -q 20
+- Audio format aac -E copy:aac
+- Subtitiles -s 1,2
 
 
