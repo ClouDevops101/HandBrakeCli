@@ -2,9 +2,10 @@
 # this script is to convert automatically a folder of video files to mp4
 # You need to change SRC -- Sourse folder and DEST -- Destination folder
 # The mp4 format is 480x270_
-# Update  : V0.1.1 25/10/2015 : Adding subtitile, audio Bite rate 128, 
-# Comment : V0.1.2 25/10/2015 : Adding debug 
-# Update  : Adding features  : scan anc comapre the output video to the original and delete it if everything is OK 
+# Update  : V0.1.1 25/10/2015 : Adding subtitile, audio Bite rate 128,
+# Comment : V0.1.2 25/10/2015 : Adding debug
+# Update  : Adding features  : scan anc comapre the output video to the original and delete it if everything is OK
+# Update  : Adding features  : Delete original file is optional now
 
 #SRC=/Volumes/Data
 #SRC=/Volumes/Movie
@@ -53,7 +54,7 @@ for FILE in `du -h $SRC/*.$FORMAT_SRC  | sort -n -r  | awk '{print $2}'`
 
 		if [ "$film_ori" == "$film_HB" ] && [ "$DELET" == "yes" ]
 		then
-		
+
 			rm -f $FILE
 			echo "Suppression du fichier $TMP/$TMP_FILE"
 
@@ -65,4 +66,3 @@ for FILE in `du -h $SRC/*.$FORMAT_SRC  | sort -n -r  | awk '{print $2}'`
 				osascript -e 'display notification "Sleeping ..."'
         	sleep $WAIT
 	done
-
