@@ -13,16 +13,16 @@ for more information about Handbrake please visite the official web page :
 This script take 3 argument as input :
 ex :
 
-Handbrake.sh /Volume/video mkv 3600
+Handbrake.sh /Volume/video mkv 3600 no
 
 - the folder to feetch video files
 - the video file format_
 - the sleep time (in seconds) between two compression
-- wether or not deleting original file 
+- wether or not deleting original file
 
 When folder is processed the script sort the video file from bigger file to smaller, than compression begin with the same order
 
-Quality specification :_
+Quality specification :
 
 - Compression using -e x264
 - audio select track -a 1,2
@@ -47,14 +47,9 @@ You can download it in official Hanbrake web site
 Installation
 ------------
 
-
-
-
-
 ```bash
     cp Handbrake.sh /usr/local/bin/ && chmod +x /usr/local/bin/Handbrake.sh
 ```
-
 
 Just download (Like the way it used to be)
 
