@@ -23,11 +23,6 @@ HB=HandBrakeCLI
 DBUG=true
 XO="ref=4:mixed-refs=1:b-adapt=2:bframes=6:weightb=1:direct=auto:me=umh:subq=11:analyse=all:8x8dct=1:trellis=2:no-fast-pskip=1:psy-rd=1,0:merange=24:deblock=-3,-3:rc-lookahead=50:aq-strength=1.2:b-pyramid=2"
 
-
-
-
-
-
 #for FILE in `ls $SRC/*.mkv`
 # Big file first
 #for FILE in `du -h $SRC/*.$FORMAT_SRC  | sort -n -r  | awk '{print $2}'`
@@ -54,7 +49,7 @@ for FILE in  `find $SRC -iname "*.$FORMAT_SRC"   `
 	 	film_ori=`HandBrakeCLI --scan -i $FILE 2>&1  | grep Duration | awk '{print $2}' | tr ',' ' ' | cut -d'.' -f1`
 		film_HB=`HandBrakeCLI --scan -i $TMP/$filename.$DEST_EXT  2>&1  | grep Duration | awk '{print $2}' | tr ',' ' ' | cut -d'.' -f1`
     $DEST_ORIG=`echo $FILE | sed 's%/[^/]*$%/%'`
-		
+
 		if [ "$film_ori" == "$film_HB" ] && [ "$DELET" == "yes" ]
 		then
 
@@ -68,4 +63,3 @@ for FILE in  `find $SRC -iname "*.$FORMAT_SRC"   `
 				osascript -e 'display notification "Sleeping ..."'
         	sleep $WAIT
 	done
-
