@@ -27,39 +27,42 @@ XO="ref=4:mixed-refs=1:b-adapt=2:bframes=6:weightb=1:direct=auto:me=umh:subq=11:
 # Big file first
 #for FILE in `du -h $SRC/*.$FORMAT_SRC  | sort -n -r  | awk '{print $2}'`
 for FILE in  `find $SRC -iname "*.$FORMAT_SRC"   `
-	do
+  do
+		for FILE in  `find $SRC -iname "*.$FORMAT_SRC"
+	      do
         	filename=$(basename $FILE)
                 TMP_FILE=$(basename $FILE)
         	extension=${filename##*.}
         	filename=${filename%.*}
-		# Copy to desktop
-		osascript -e "display notification \"$FILE\""
-		cp  -v $FILE $TMP
+		      # Copy to desktop
+		      osascript -e "display notification \"$FILE\""
+		      cp  -v $FILE $TMP
                 sleep 7
-		#echo "-i $FILE -o $DEST/$filename.$DEST_EXT"
-		osascript -e 'display notification "Start compressing"'
-		$HB -i $TMP/$TMP_FILE -o $TMP/$filename.$DEST_EXT  -f av_mp4 -m -a 1,2  -E copy:aac  --audio-fallback aac -B 128 -e x264 -q 20 -s 1,2 -N fre,eng -x $XO
-		osascript -e 'display notification "End compressing"'
-    Size_SRC=`du -h $FILE`
-		Size_HB=`du -h $TMP/$filename.$DEST_EXT`
-		echo -e "Original size : $Size_SRC \nAfter compres : $Size_HB "
-		rm -f $TMP/$TMP_FILE
-		# comparaison de la compression avec HB
+		      #echo "-i $FILE -o $DEST/$filename.$DEST_EXT"
+		      osascript -e 'display notification "Start compressing"'
+		      $HB -i $TMP/$TMP_FILE -o $TMP/$filename.$DEST_EXT  -f av_mp4 -m -a 1,2  -E copy:aac  --audio-fallback aac -B 128 -e x264 -q 20 -s 1,2 -N fre,eng -x $XO
+		      osascript -e 'display notification "End compressing"'
+          Size_SRC=`du -h $FILE`
+		      Size_HB=`du -h $TMP/$filename.$DEST_EXT`
+		      echo -e "Original size : $Size_SRC \nAfter compres : $Size_HB "
+		      rm -f $TMP/$TMP_FILE
+		      # comparaison de la compression avec HB
 
-	 	film_ori=`HandBrakeCLI --scan -i $FILE 2>&1  | grep Duration | awk '{print $2}' | tr ',' ' ' | cut -d'.' -f1`
-		film_HB=`HandBrakeCLI --scan -i $TMP/$filename.$DEST_EXT  2>&1  | grep Duration | awk '{print $2}' | tr ',' ' ' | cut -d'.' -f1`
-    $DEST_ORIG=`echo $FILE | sed 's%/[^/]*$%/%'`
+	 	      film_ori=`HandBrakeCLI --scan -i $FILE 2>&1  | grep Duration | awk '{print $2}' | tr ',' ' ' | cut -d'.' -f1`
+		      film_HB=`HandBrakeCLI --scan -i $TMP/$filename.$DEST_EXT  2>&1  | grep Duration | awk '{print $2}' | tr ',' ' ' | cut -d'.' -f1`
+          $DEST_ORIG=`echo $FILE | sed 's%/[^/]*$%/%'`
 
-		if [ "$film_ori" == "$film_HB" ] && [ "$DELET" == "yes" ]
-		then
+		      if [ "$film_ori" == "$film_HB" ] && [ "$DELET" == "yes" ]
+		      then
 
-			rm -f $FILE
-			echo "Suppression du fichier $TMP/$TMP_FILE"
+			      rm -f $FILE
+			      echo "Suppression du fichier $TMP/$TMP_FILE"
 
-		else
-			echo "Fichier non supprime merci de verifier les deux fichiers"
-		fi
-                mv $TMP/$filename.$DEST_EXT $DEST_ORIG
-				osascript -e 'display notification "Sleeping ..."'
+		      else
+			      echo "Fichier non supprime merci de verifier les deux fichiers"
+		      fi
+          mv $TMP/$filename.$DEST_EXT $DEST_ORIG
+				  osascript -e 'display notification "Sleeping ..."'
         	sleep $WAIT
-	done
+	      done
+  done
