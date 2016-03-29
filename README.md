@@ -21,7 +21,7 @@ Handbrake.sh /Volume/video "mkv|avi" 800 yes "06XXXXX"
 - the sleep time (in seconds) between two compression
 - Yes/no deleting source file
 
-When folder is processed the script sort the video file from bigger file to smaller, than compression begin with the same order
+Sending
 
 Quality specification :
 
