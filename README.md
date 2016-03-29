@@ -75,5 +75,5 @@ Usage
     --------------------------------------------------------------------------
     https://github.com/LinuxArchitects/HandBrakeCli
 
-  
+
 ```
