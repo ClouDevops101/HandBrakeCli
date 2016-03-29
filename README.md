@@ -1,9 +1,10 @@
 Handbrake.sh
 =============
 
-Handbrank.sh Command line interface for compressing mkv and mp4 video file to m4v/aac Appletv ios video format
+Handbrank.sh Command line interface for compressing mkv and avi video file to m4v/aac AppleTv and  iOS video format and
+  send task notification to a phone over SMS
 
-![HandBrake](https://handbrake.fr/img/logo.png)
+![HandBrake](Handbrake.png)
 
 
 Handbrake.sh convert mkv to m4v AppleTv format using HandBrakeCli the most powerfull tools to compresse multiple video format.
@@ -13,12 +14,12 @@ for more information about Handbrake please visite the official web page :
 This script take 3 argument as input :
 ex :
 
-Handbrake.sh /Volume/video mkv 3600 no
+Handbrake.sh /Volume/video "mkv|avi" 800 yes "06XXXXX"
 
 - the folder to feetch video files
-- the video file format_
+- the video file format, multiple format (container) could be specified
 - the sleep time (in seconds) between two compression
-- wether or not deleting original file
+- Yes/no deleting source file
 
 When folder is processed the script sort the video file from bigger file to smaller, than compression begin with the same order
 
@@ -67,13 +68,12 @@ Usage
 -----
 
 ```bash
-    $      Handbrake.sh /Volume/Video_Folder mkv   3600   yes
-    usage: Handbrake.sh     [arg1]          [arg2] [arg3] [arg4]
+    $      Handbrake.sh /Volume/Video_Folder "mkv|avi"  3600    yes    "Phone number"
+    usage: Handbrake.sh     [Arg1]             [Arg2]   [Arg3] [Arg4]  [Arg5]
 
-    Command line interface for compressing mkv and mp4 video file to m4v/aac Appletv ios video format
+    Command line interface for compressing mkv and mp4 video file to m4v/aac Appletv ios video format notification over SMS
     --------------------------------------------------------------------------
     https://github.com/LinuxArchitects/HandBrakeCli
 
-    optional arguments:
-       not for yet
+  
 ```
